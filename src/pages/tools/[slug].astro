@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro'; import Header from '../../components/Header.astro'; import Footer from '../../components/Footer.astro'; import { tools, getTool } from '../../lib/tools';
 export function getStaticPaths() { return tools.filter(t => t.status === 'published').map(tool => ({ params: { slug: tool.slug }, props: { tool } })); }
-const { tool } = Astro.props; const related = tool.relatedTools.map((slug: string) => getTool(slug)).filter(Boolean);
+const { tool } = Astro.props; const related = tool.relatedTools.map((slug: string) => getTool(slug)).filter(Boolean); const toolId = ({'date-after':'T01','date-before':'T02','date-difference':'T03','video-speed':'T04','discount':'T05','percentage':'T06','unit-price':'T07','hourly-monthly':'T08','character-count':'T09','random-picker':'T10'} as Record<string, string>)[tool.slug] ?? 'T00';
 ---
 <BaseLayout title={`${tool.title}｜5秒で使えるツール.com`} description={tool.description}><Header /><main class="container tool-page"><p class="eyebrow">{tool.category}</p><div class="title-row"><h1>{tool.title}</h1><span class="title-hint">入力するだけ</span></div><section class="tool-card" data-tool={tool.kind}>
   {tool.kind === 'date-after' || tool.kind === 'date-before' ? <><label class="date-field"><span>基準日</span><input class="date-input" data-field="date" type="date" /></label><label>日数<input data-field="days" type="number" min="0" value="0" inputmode="numeric" /></label></> : null}
@@ -14,7 +14,7 @@ const { tool } = Astro.props; const related = tool.relatedTools.map((slug: strin
   {tool.kind === 'character-count' ? <label>文章<textarea data-field="text" rows="8" placeholder="ここに貼り付け"></textarea></label> : null}
   {tool.kind === 'random-picker' ? <><label>候補（1行1つ）<textarea data-field="options" rows="8" placeholder="りんご&#10;みかん&#10;ぶどう"></textarea></label><button data-action="pick">抽選</button></> : null}
   <div class="result" aria-live="polite"><span class="result-label">結果</span><strong data-result>入力すると表示</strong><span data-subresult></span></div>
-</section><p class="description">{tool.description}</p><section><h2>関連ツール</h2><div class="related">{related.map((item) => item && <a href={`/tools/${item.slug}/`}>{item.shortTitle}</a>)}</div></section><p class="tool-id">識別番号：T{String(tools.findIndex((item) => item.slug === tool.slug) + 1).padStart(2, '0')}</p></main><Footer /></BaseLayout>
+</section><p class="description">{tool.description}</p><section><h2>関連ツール</h2><div class="related">{related.map((item) => item && <a href={`/tools/${item.slug}/`}>{item.shortTitle}</a>)}</div></section><p class="tool-id">識別番号：{toolId}</p></main><Footer /></BaseLayout>
 <script define:vars={{ kind: tool.kind }}>
   const result = document.querySelector('[data-result]'); const sub = document.querySelector('[data-subresult]'); const fields = () => Object.fromEntries([...document.querySelectorAll('[data-field]')].map((el) => [el.dataset.field, el.value]));
   const number = (v) => Number(v); const yen = (v) => `${Math.round(v).toLocaleString('ja-JP')}円`; const invalid = () => { if (result) result.textContent = '入力内容を確認してください'; if (sub) sub.textContent = ''; };
