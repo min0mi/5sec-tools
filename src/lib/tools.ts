@@ -1,4 +1,4 @@
-export type ToolKind = 'date-after' | 'date-before' | 'date-difference' | 'video-speed' | 'discount' | 'percentage' | 'unit-price' | 'hourly-monthly' | 'character-count' | 'random-picker' | 'image-converter';
+export type ToolKind = 'date-after' | 'date-before' | 'date-difference' | 'video-speed' | 'discount' | 'percentage' | 'unit-price' | 'hourly-monthly' | 'character-count' | 'random-picker' | 'image-converter' | 'image-crop';
 
 export interface ToolDefinition {
   slug: string; title: string; shortTitle: string; purpose: string; description: string; inputs: string[]; outputs: string[]; example: string; category: string; keywords: string[]; relatedTools: string[]; status: 'draft' | 'published'; kind: ToolKind;
@@ -16,6 +16,7 @@ export const tools: ToolDefinition[] = [
   {slug:'character-count', title:'文字数カウント', shortTitle:'文字数カウント', purpose:'文章の長さをすぐ確認する', description:'文章の文字数、空白を除いた文字数、行数を数えます。', inputs:['文章'], outputs:['文字数','空白除外文字数','行数'], example:'文章を貼り付けるとリアルタイム集計', category:'文章', keywords:['文字数','文章','カウント'], relatedTools:['random-picker'], status:'published', kind:'character-count'},
   {slug:'random-picker', title:'ランダム抽選', shortTitle:'ランダム抽選', purpose:'複数の候補から1つを公平に選ぶ', description:'候補を1行ずつ入力すると、ランダムに1つ選びます。', inputs:['候補（1行1つ）'], outputs:['選ばれた候補'], example:'りんご\nみかん\nぶどう → 1つを抽選', category:'便利', keywords:['抽選','ランダム','くじ'], relatedTools:['character-count'], status:'published', kind:'random-picker'},
   {slug:'image-converter', title:'画像ファイル形式変換', shortTitle:'画像形式変換', purpose:'画像を使いたい形式へ変換する', description:'画像をPNG・JPG・WebPなどへ変換し、必要ならサイズと品質も調整できます。', inputs:['画像ファイル','出力形式','品質・サイズ'], outputs:['変換後の画像ファイル'], example:'PNG画像をWebPへ変換', category:'画像', keywords:['画像','形式','変換'], relatedTools:[], status:'published', kind:'image-converter'},
+  {slug:'image-crop', title:'画像トリミング', shortTitle:'画像トリミング', purpose:'画像の必要な部分だけを切り抜く', description:'画像上をドラッグして範囲を選び、必要な部分だけを切り抜いて保存できます。', inputs:['画像ファイル','切り抜き範囲'], outputs:['トリミング後の画像ファイル'], example:'画像の一部分だけを切り抜く', category:'画像', keywords:['画像','トリミング','切り抜き'], relatedTools:['image-converter'], status:'published', kind:'image-crop'},
 ];
 
 export const getTool = (slug: string) => tools.find((tool) => tool.slug === slug);
