@@ -1,0 +1,7 @@
+{
+  "name": "5sec-tools",
+  "type": "module",
+  "scripts": {"dev": "astro dev", "build": "astro build", "preview": "astro preview", "test": "vitest run"},
+  "dependencies": {"@astrojs/sitemap": "^3.2.1", "astro": "^5.2.0"},
+  "devDependencies": {"vitest": "^2.1.8", "typescript": "^5.7.2"}
+}

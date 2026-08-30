@@ -1,0 +1,8 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'; import Header from '../components/Header.astro'; import Footer from '../components/Footer.astro'; import { tools } from '../lib/tools';
+---
+<BaseLayout><Header /><main class="container home"><p class="eyebrow">5秒で使える。それだけ。</p><h1>使いたいツールを、すぐ使う。</h1><div class="search-wrap"><label for="tool-search">ツールを検索</label><input id="tool-search" type="search" placeholder="例：倍速、割引、何日" /></div><section><div class="section-heading"><h2>ツール一覧</h2><span id="result-count">{tools.length}個</span></div><div class="tool-list" id="tool-list">{tools.map((tool) => <a class="tool-link" href={`/tools/${tool.slug}/`} data-search={`${tool.title} ${tool.keywords.join(' ')}`}><span>{tool.shortTitle}</span><small>{tool.category}</small></a>)}</div><p class="empty" id="empty" hidden>なかった。</p></section></main><Footer /></BaseLayout>
+<script>
+  const input = document.querySelector<HTMLInputElement>('#tool-search'); const items = [...document.querySelectorAll<HTMLElement>('.tool-link')]; const empty = document.querySelector<HTMLElement>('#empty'); const count = document.querySelector<HTMLElement>('#result-count');
+  input?.addEventListener('input', () => { const q = input.value.trim().toLowerCase(); let visible = 0; items.forEach((item) => { const show = !q || item.dataset.search?.toLowerCase().includes(q); item.hidden = !show; if (show) visible++; }); if (empty) empty.hidden = visible > 0; if (count) count.textContent = `${visible}個`; });
+</script>

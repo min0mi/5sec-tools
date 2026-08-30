@@ -1,0 +1,4 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro'; import Header from '../../components/Header.astro'; import { tools } from '../../lib/tools';
+---
+<BaseLayout title="ツール一覧｜5秒で使えるツール.com"><Header /><main class="container"><p class="eyebrow">すぐ使える</p><h1>ツール一覧</h1><div class="tool-list">{tools.map((tool) => <a class="tool-link" href={`/tools/${tool.slug}/`}><span>{tool.shortTitle}</span><small>{tool.category}</small></a>)}</div></main></BaseLayout>
