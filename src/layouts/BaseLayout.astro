@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import '../styles/tool-overrides.css';
 const { title = '5秒で使えるツール.com', description = '5秒で使える。それだけ。', canonical } = Astro.props;
 const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? 'https://5sec-tools.pages.dev';
 const canonicalUrl = canonical ?? new URL(Astro.url.pathname, siteUrl).toString();
