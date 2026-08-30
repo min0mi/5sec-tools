@@ -1,0 +1,4 @@
+---
+const { id = 'file-input', label = 'ファイルを選択', accept = '', multiple = false } = Astro.props;
+---
+<label class="file-dropzone"><input id={id} type="file" accept={accept} multiple={multiple} /><strong>{label}</strong><span>クリックまたはドラッグ＆ドロップ</span></label>

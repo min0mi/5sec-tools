@@ -1,0 +1,4 @@
+---
+const { field, label, value = '', min = '0', step = '1' } = Astro.props;
+---
+<label class="field-group"><span>{label}</span><span class="input-with-unit"><input data-field={field} type="number" value={value} min={min} step={step} inputmode="decimal" /><em>円</em></span></label>

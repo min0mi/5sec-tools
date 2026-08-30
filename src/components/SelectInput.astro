@@ -1,0 +1,4 @@
+---
+const { field, label, options = [] } = Astro.props;
+---
+<label class="field-group"><span>{label}</span><select data-field={field}>{options.map((option: any) => <option value={option.value ?? option}>{option.label ?? option}</option>)}</select></label>

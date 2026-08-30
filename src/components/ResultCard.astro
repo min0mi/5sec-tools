@@ -1,0 +1,4 @@
+---
+const { copyable = false } = Astro.props;
+---
+<section class="result" aria-live="polite"><span class="result-label">結果</span><strong data-result>入力すると表示</strong><span data-subresult></span>{copyable && <button class="copy-result" type="button" data-action="copy">結果をコピー</button>}</section>

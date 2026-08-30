@@ -1,0 +1,4 @@
+---
+const { field, options = [] } = Astro.props;
+---
+<div class="segmented-control" role="group">{options.map((option: any, index: number) => <button type="button" data-segment-field={field} data-segment-value={option.value ?? option} aria-pressed={index === 0}>{option.label ?? option}</button>)}</div>

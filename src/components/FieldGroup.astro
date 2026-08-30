@@ -1,0 +1,4 @@
+---
+const { label, hint = '' } = Astro.props;
+---
+<label class="field-group"><span>{label}</span>{hint && <small>{hint}</small>}<slot /></label>

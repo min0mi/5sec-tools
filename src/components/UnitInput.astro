@@ -1,0 +1,4 @@
+---
+const { field, label, unit = '', value = '', type = 'number' } = Astro.props;
+---
+<label class="field-group"><span>{label}</span><span class="input-with-unit"><input data-field={field} type={type} value={value} inputmode={type === 'number' ? 'decimal' : undefined} /><em>{unit}</em></span></label>

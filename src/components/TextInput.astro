@@ -1,0 +1,4 @@
+---
+const { field, label, value = '', placeholder = '' } = Astro.props;
+---
+<label class="field-group"><span>{label}</span><input data-field={field} type="text" value={value} placeholder={placeholder} /></label>

@@ -1,0 +1,4 @@
+---
+const { related } = Astro.props;
+---
+{related.length > 0 && <section class="related-section"><h2>関連ツール</h2><div class="related">{related.map((item: any) => item && <a href={`/tools/${item.slug}/`}>{item.shortTitle}</a>)}</div></section>}

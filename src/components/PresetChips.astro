@@ -1,0 +1,4 @@
+---
+const { field, values, suffix = '' } = Astro.props;
+---
+<div class="presets" aria-label="よく使う値">{values.map((value: number | string) => <button type="button" data-preset-field={field} data-preset-value={value}>{value}{suffix}</button>)}</div>

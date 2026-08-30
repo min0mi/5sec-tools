@@ -1,0 +1,4 @@
+---
+const { field, label, value = '', min, max, step = 'any', suffix = '', placeholder = '' } = Astro.props;
+---
+<label class="field-group"><span>{label}</span><span class="input-with-unit"><input data-field={field} type="number" value={value} min={min} max={max} step={step} placeholder={placeholder} inputmode="decimal" />{suffix && <em>{suffix}</em>}</span></label>

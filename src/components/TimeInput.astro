@@ -1,0 +1,4 @@
+---
+const { field, label, value = '' } = Astro.props;
+---
+<label class="field-group"><span>{label}</span><input data-field={field} type="time" value={value} /></label>

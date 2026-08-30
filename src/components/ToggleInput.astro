@@ -1,0 +1,4 @@
+---
+const { field, label, checked = false } = Astro.props;
+---
+<label class="toggle-input"><input data-field={field} type="checkbox" checked={checked} /><span>{label}</span></label>
