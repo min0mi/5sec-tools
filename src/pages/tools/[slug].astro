@@ -33,8 +33,9 @@ const toolId = ({'date-after':'T01','date-before':'T02','date-difference':'T03',
   {tool.kind === 'csv-tsv-converter' && <><FieldGroup label="表形式テキスト"><textarea data-field="text" rows="8" placeholder="CSVまたはTSVを貼り付け"></textarea></FieldGroup><FieldGroup label="変換先"><select data-field="target"><option value="tsv">TSV（タブ区切り）</option><option value="csv">CSV（カンマ区切り）</option></select></FieldGroup></>}
   <ResultCard copyable={['date-after','date-before','date-difference','discount','percentage','unit-price','hourly-monthly','password-generator','text-replace','csv-tsv-converter'].includes(tool.kind)} />
 </section><p class="description">{tool.description}</p><RelatedTools related={related} /><p class="tool-id">{toolId}</p></main><Footer /></BaseLayout>
-<script define:vars={{ kind: tool.kind }}>
+<script>
   import QRCode from 'qrcode';
+  const kind = document.querySelector('[data-tool]')?.dataset.tool;
   const result = document.querySelector('[data-result]'); const sub = document.querySelector('[data-subresult]');
   const fields = () => Object.fromEntries([...document.querySelectorAll('[data-field]')].map((el) => [el.dataset.field, el.type === 'checkbox' ? el.checked : el.value]));
   const invalid = (message = '入力内容を確認してください') => { if (result) result.textContent = message; if (sub) sub.textContent = ''; };
