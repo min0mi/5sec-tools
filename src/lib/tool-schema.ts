@@ -17,4 +17,9 @@ export const toolSchemas: Record<ToolKind, ToolSchema> = {
   'random-picker': { kind:'random-picker', inputs:[{id:'options',type:'textarea',label:'候補（1行1つ）',required:true}], liveResult:false, resultType:'text', copyable:false },
   'image-converter': { kind:'image-converter', inputs:[{id:'files',type:'file',label:'画像ファイル',required:true},{id:'format',type:'custom',label:'変換後の形式',required:true},{id:'quality',type:'range',label:'品質',default:80}], liveResult:false, resultType:'custom' },
   'image-crop': { kind:'image-crop', inputs:[{id:'file',type:'file',label:'画像ファイル',required:true},{id:'area',type:'custom',label:'切り抜き範囲',required:true},{id:'format',type:'custom',label:'保存形式'}], liveResult:true, resultType:'custom' },
+  'qr-code': { kind:'qr-code', inputs:[{id:'text',type:'text',label:'URL・短文',required:true}], liveResult:true, resultType:'custom', copyable:false },
+  'password-generator': { kind:'password-generator', inputs:[{id:'length',type:'number',label:'長さ',default:16,presets:[12,16,20,24],required:true},{id:'uppercase',type:'custom',label:'大文字'},{id:'digits',type:'custom',label:'数字'},{id:'symbols',type:'custom',label:'記号'}], liveResult:false, resultType:'text', copyable:true },
+  'image-resize': { kind:'image-resize', inputs:[{id:'file',type:'file',label:'画像ファイル',required:true},{id:'width',type:'number',label:'幅'},{id:'height',type:'number',label:'高さ'}], liveResult:false, resultType:'custom' },
+  'text-replace': { kind:'text-replace', inputs:[{id:'text',type:'textarea',label:'文章',required:true},{id:'search',type:'text',label:'検索語',required:true},{id:'replacement',type:'text',label:'置換後',required:false}], liveResult:true, resultType:'text', copyable:true },
+  'csv-tsv-converter': { kind:'csv-tsv-converter', inputs:[{id:'text',type:'textarea',label:'表形式テキスト',required:true},{id:'target',type:'custom',label:'変換先',required:true}], liveResult:true, resultType:'text', copyable:true },
 };

@@ -7,7 +7,7 @@ import { runUxGate } from '../src/lib/ux-gate';
 describe('tool definition audit', () => {
   it('all published tools are appropriate by the baseline rules', () => {
     const results = auditTools(tools.filter((tool) => tool.status === 'published'));
-    expect(results).toHaveLength(12);
+    expect(results).toHaveLength(17);
     expect(results.every((result) => result.level === '良好')).toBe(true);
   });
 
