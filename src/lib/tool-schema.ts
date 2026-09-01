@@ -15,6 +15,7 @@ export const toolSchemas: Record<ToolKind, ToolSchema> = {
   'hourly-monthly': { kind:'hourly-monthly', inputs:[{id:'hourly',type:'money',label:'時給',default:1200,unit:'円',required:true},{id:'hours',type:'number',label:'1日の勤務時間',default:8,unit:'時間',required:true},{id:'days',type:'number',label:'週の勤務日数',default:5,unit:'日',presets:[3,4,5],required:true}], liveResult:true, resultType:'currency' },
   'character-count': { kind:'character-count', inputs:[{id:'text',type:'textarea',label:'文章',required:false}], liveResult:true, resultType:'number', copyable:true },
   'random-picker': { kind:'random-picker', inputs:[{id:'options',type:'textarea',label:'候補（1行1つ）',required:true}], liveResult:false, resultType:'text', copyable:false },
+  'roulette': { kind:'roulette', inputs:[{id:'options',type:'textarea',label:'候補（1行1つ）',required:true}], liveResult:false, resultType:'text', copyable:true },
   'image-converter': { kind:'image-converter', inputs:[{id:'files',type:'file',label:'画像ファイル',required:true},{id:'format',type:'custom',label:'変換後の形式',required:true},{id:'quality',type:'range',label:'品質',default:80}], liveResult:false, resultType:'custom' },
   'image-crop': { kind:'image-crop', inputs:[{id:'file',type:'file',label:'画像ファイル',required:true},{id:'area',type:'custom',label:'切り抜き範囲',required:true},{id:'format',type:'custom',label:'保存形式'}], liveResult:true, resultType:'custom' },
   'qr-code': { kind:'qr-code', inputs:[{id:'text',type:'text',label:'URL・短文',required:true}], liveResult:true, resultType:'custom', copyable:false },

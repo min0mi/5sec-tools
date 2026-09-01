@@ -8,7 +8,7 @@ const check = (name: string, passed: boolean, message: string): AuditCheck => ({
 const kindSignals: Record<ToolDefinition['kind'], string[]> = {
   'date-after': ['日付', '後'], 'date-before': ['日付', '前'], 'date-difference': ['日付', '差'],
   'video-speed': ['動画', '倍速'], discount: ['割引', '価格'], percentage: ['パーセント', '割合'],
-  'unit-price': ['単価', '比較'], 'hourly-monthly': ['時給', '月収'], 'character-count': ['文字', '数'], 'random-picker': ['ランダム', '抽選'], 'image-converter': ['画像', '変換'], 'image-crop': ['画像', 'トリミング'], 'qr-code': ['QR', '生成'], 'password-generator': ['パスワード', '生成'], 'image-resize': ['画像', 'サイズ'], 'text-replace': ['文字列', '置換'], 'csv-tsv-converter': ['CSV', 'TSV'],
+  'unit-price': ['単価', '比較'], 'hourly-monthly': ['時給', '月収'], 'character-count': ['文字', '数'], 'random-picker': ['ランダム', '抽選'], 'roulette': ['ルーレット', '抽選'], 'image-converter': ['画像', '変換'], 'image-crop': ['画像', 'トリミング'], 'qr-code': ['QR', '生成'], 'password-generator': ['パスワード', '生成'], 'image-resize': ['画像', 'サイズ'], 'text-replace': ['文字列', '置換'], 'csv-tsv-converter': ['CSV', 'TSV'],
 };
 
 export function auditTool(tool: ToolDefinition, allTools: ToolDefinition[]): ToolAudit {
