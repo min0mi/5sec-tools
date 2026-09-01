@@ -1,7 +1,7 @@
 {
   "name": "5sec-tools",
   "type": "module",
-  "scripts": {"dev": "astro dev", "build": "astro build", "preview": "astro preview", "test": "vitest run", "audit": "vitest run tests/tool-audit.test.ts"},
+  "scripts": {"dev": "astro dev", "build": "astro build", "preview": "astro preview", "test": "vitest run", "audit": "vitest run tests/tool-audit.test.ts", "ux:gate": "npm run audit && npm run test && npm run build"},
   "dependencies": {"@astrojs/sitemap": "^3.2.1", "astro": "^5.2.0"},
   "devDependencies": {"vitest": "^2.1.8", "typescript": "^5.7.2"}
 }

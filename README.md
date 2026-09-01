@@ -18,6 +18,8 @@ src/lib/tool-schema.ts が入力型・ラベル・初期値・プリセット・
 
 新しい一般ツールは、tools.tsの定義、tool-schema.tsのSchema、[slug].astroの入力ブロックと計算処理を追加します。画像編集などの独自操作は専用ページを作り、一覧にはtools.tsだけで登録します。
 
+ツール追加時は [TOOL_ADDING_WORKFLOW.md](docs/ux/TOOL_ADDING_WORKFLOW.md) と [NEW_TOOL_TEMPLATE.md](docs/ux/NEW_TOOL_TEMPLATE.md) を使い、最後に `npm run ux:gate` を実行します。GitHubへpushした場合もUX Gateが自動実行されます。
+
 ## UX Gate
 
 src/lib/ux-gate.ts は、ラベル、初期値、自由入力とプリセットの併用、リアルタイム更新、結果型、ファイル入力などを共通点検します。新しいツールを追加したら、npm run test、npm run audit、npm run buildを実行します。
